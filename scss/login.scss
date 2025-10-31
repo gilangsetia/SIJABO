@@ -1,3 +1,4 @@
+// === FONT UTAMA ===
 body {
   font-family: 'Plus Jakarta Sans', 'Segoe UI', system-ui, sans-serif;
   background-color: #f8f9fa;
@@ -8,6 +9,7 @@ body {
 $primary-red: #A50000;
 $primary-red-hover: #8a0000;
 
+// === CARD ===
 .card {
   overflow: hidden;
   border: none;
@@ -15,144 +17,58 @@ $primary-red-hover: #8a0000;
   border-radius: 12px;
 }
 
-.input-box {
+// === INPUT EFFECT: YOSHIKO (TYMPANUS) ===
+.yoshiko {
   position: relative;
-  margin: 1.25rem 0;
+  margin-bottom: 1.5rem;
 }
 
-.input-icon {
-  position: absolute;
-  left: 2px;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 44px;
-  height: 44px;
-  background: #f0f0f0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 6px;
-  transition: all 0.3s ease;
-  z-index: 2;
-
-  svg {
-    fill: #777;
-    transition: fill 0.3s ease;
-    width: 18px;
-    height: 18px;
-  }
-}
-
-input[type="email"],
-input[type="password"] {
+.yoshiko__label {
   font-family: 'Plus Jakarta Sans', sans-serif;
   font-size: 1rem;
-  padding: 0.75rem 1rem 0.75rem 52px;
+  font-weight: 600;
+  color: #555;
+  display: block;
+  margin-bottom: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.yoshiko__input {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 1rem;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid #ddd;
+  padding: 0.6rem 0;
   width: 100%;
-  border: 2px solid #ddd;
-  border-radius: 8px;
   color: #333;
-  transition: all 0.3s ease;
-  outline: none;
-  background: #fff;
+  transition: border-color 0.3s ease;
 
   &:focus {
-    border-color: $primary-red;
-    box-shadow: 0 0 0 0.2rem rgba(165, 0, 0, 0.15);
-    padding-left: 56px;
+    outline: none;
+    border-bottom-color: $primary-red;
   }
 }
 
-input:focus ~ .input-icon {
+.yoshiko__line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
   background: $primary-red;
-  svg {
-    fill: white;
-  }
+  transition: width 0.4s cubic-bezier(0.22, 0.61, 0.36, 1);
 }
 
-.btn-brand {
-  background-color: $primary-red;
-  border: none;
-  color: white !important;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-weight: 600;
-  font-size: 1.05rem;
-  padding: 0.75rem;
-  border-radius: 8px;
-  letter-spacing: 0.01em;
-  transition: all 0.25s ease;
-
-  &:hover {
-    background-color: $primary-red-hover;
-    transform: translateY(-1px);
-    box-shadow: 0 4px 10px rgba(165, 0, 0, 0.25);
-  }
+.yoshiko__input:focus ~ .yoshiko__line {
+  width: 100%;
 }
 
-.btn-animated {
-  position: relative;
-  overflow: hidden;
+.yoshiko__input:focus ~ .yoshiko__label {
+  color: $primary-red;
 }
 
-.text-muted {
-  font-size: 0.95rem;
-  color: gray;
-}
-
-.text-white {
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
-  font-family: 'Plus Jakarta Sans', sans-serif;
-}
-
-.container-login {
-  max-width: 1200px;
-}
-
-@media (max-width: 991.98px) {
-  .card {
-    margin: 1rem;
-    border-radius: 10px;
-  }
-  .input-icon {
-    width: 40px;
-    height: 40px;
-  }
-  input[type="email"],
-  input[type="password"] {
-    padding-left: 48px;
-    &:focus {
-      padding-left: 52px;
-    }
-  }
-}
-
-.title-main {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-weight: 700;
-  font-size: 1.75rem;
-  line-height: 1.2;
-  margin: 0;
-  letter-spacing: -0.02em;
-}
-
-.title-sub {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-weight: 500;
-  font-size: 1.25rem;
-  line-height: 1.4;
-  margin: 0.5rem 0 0;
-  opacity: 0.95;
-}
-
-@media (min-width: 1200px) {
-  .title-main {
-    font-size: 2rem;
-  }
-  .title-sub {
-    font-size: 1.35rem;
-  }
-}
-
+// === TOMBOL LOGIN ALA TYMPANUS ===
 .btn-tympanus {
   position: relative;
   display: inline-flex;
@@ -184,29 +100,6 @@ input:focus ~ .input-icon {
   }
 }
 
-.btn-tympanus--arrow {
-  .btn-tympanus__text {
-    transition: transform 0.3s ease;
-  }
-
-  .btn-tympanus__icon {
-    width: 18px;
-    height: 18px;
-    margin-left: 0.5rem;
-    fill: white;
-    transition: transform 0.3s ease, margin 0.3s ease;
-  }
-
-  &:hover .btn-tympanus__text {
-    transform: translateX(-4px);
-  }
-
-  &:hover .btn-tympanus__icon {
-    transform: translateX(4px);
-    margin-left: 0.75rem;
-  }
-}
-
 .btn-tympanus--fill {
   &::before {
     content: '';
@@ -224,6 +117,7 @@ input:focus ~ .input-icon {
   }
 }
 
+// === SWIPER CUSTOM ===
 .login-swiper {
   position: absolute;
   top: 0;
@@ -231,23 +125,9 @@ input:focus ~ .input-icon {
   width: 100%;
   height: 100%;
 
-  .swiper-wrapper {
-    height: 100%;
-  }
-
-  .swiper-slide {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-  }
-
-  .swiper-slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-  }
+  .swiper-wrapper { height: 100%; }
+  .swiper-slide { height: 100%; display: flex; align-items: center; justify-content: center; }
+  .swiper-slide img { width: 100%; height: 100%; object-fit: cover; }
 
   .swiper-button-prev,
   .swiper-button-next {
@@ -259,31 +139,16 @@ input:focus ~ .input-icon {
     margin-top: -18px;
     backdrop-filter: blur(2px);
     transition: all 0.3s ease;
-
-    &:hover {
-      background: rgba(0, 0, 0, 0.6);
-      transform: scale(1.1);
-    }
-
-    &::after {
-      font-size: 16px;
-      font-weight: bold;
-    }
+    &::after { font-size: 16px; font-weight: bold; }
+    &:hover { background: rgba(0, 0, 0, 0.6); transform: scale(1.1); }
   }
-
-  .swiper-button-prev {
-    left: 20px;
-  }
-
-  .swiper-button-next {
-    right: 20px;
-  }
+  .swiper-button-prev { left: 20px; }
+  .swiper-button-next { right: 20px; }
 
   .swiper-pagination {
     bottom: 40px !important;
     z-index: 2;
   }
-
   .swiper-pagination-bullet {
     width: 8px;
     height: 8px;
@@ -291,12 +156,64 @@ input:focus ~ .input-icon {
     opacity: 1;
     transition: all 0.3s ease;
   }
-
-  .swiper-pagination-bullet-active {
-    background: white;
-  }
+  .swiper-pagination-bullet-active { background: white; }
 }
 
-.bg-gradient-dark {
+// === OVERLAY HANYA DI SISI KANAN ===
+.login-right-side {
+  position: relative;
+}
+
+.login-right-side::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
   background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  z-index: 10;
+  pointer-events: none;
+}
+
+.login-text-overlay {
+  position: relative;
+  z-index: 20;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+// === TEKS ===
+.title-main {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 1.75rem;
+  line-height: 1.2;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.title-sub {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 500;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  margin: 0.5rem 0 0;
+  opacity: 0.95;
+}
+
+@media (min-width: 1200px) {
+  .title-main { font-size: 2rem; }
+  .title-sub { font-size: 1.35rem; }
+}
+
+// === RESPONSIF ===
+.container-login {
+  max-width: 1200px;
+}
+
+@media (max-width: 991.98px) {
+  .card {
+    margin: 1rem;
+    border-radius: 10px;
+  }
 }
