@@ -9,6 +9,11 @@ body {
 $primary-red: #A50000;
 $primary-red-hover: #8a0000;
 
+// === KONTAINER LEBIH KECIL ===
+.container-login {
+  max-width: 900px;
+}
+
 // === CARD ===
 .card {
   overflow: hidden;
@@ -39,7 +44,7 @@ $primary-red-hover: #8a0000;
   background: transparent;
   border: none;
   border-bottom: 2px solid #ddd;
-  padding: 0.6rem 0;
+  padding: 0.5rem 0;
   width: 100%;
   color: #333;
   transition: border-color 0.3s ease;
@@ -75,7 +80,7 @@ $primary-red-hover: #8a0000;
   align-items: center;
   justify-content: center;
   width: 100%;
-  padding: 0.85rem 1.25rem;
+  padding: 0.75rem 1.25rem;
   background: $primary-red;
   color: white;
   font-family: 'Plus Jakarta Sans', sans-serif;
@@ -207,10 +212,6 @@ $primary-red-hover: #8a0000;
 }
 
 // === RESPONSIF ===
-.container-login {
-  max-width: 1200px;
-}
-
 @media (max-width: 991.98px) {
   .card {
     margin: 1rem;
